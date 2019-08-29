@@ -68,49 +68,70 @@ function displayValue() {
     display = "";
     reset = false;
   }
-  display = display + this.innerHTML;
-  document.getElementById("result").innerHTML = display;
+
+  if (display.length>9) {
+    document.getElementById("result").innerHTML = display.substring(0,9);
+  } else {
+    display = display + this.innerHTML;
+    document.getElementById("result").innerHTML = display;
+  }
 }
 
-document.getElementById("dot").addEventListener('click', function () {
+document.getElementById("dot").addEventListener('click', function() {
   if (!display.includes(".")) {
     display = display + this.innerHTML;
     document.getElementById("result").innerHTML = display;
   }
 });
 
-document.getElementById("clear").addEventListener('click', function () {
+document.getElementById("clear").addEventListener('click', function() {
   display = "", num1 = "", num2 = "", operator = "";
   reset = false;
   document.getElementById("result").innerHTML = "";
 });
 
+
 var opsquare = document.getElementsByClassName("opsquare");
 for (var i = 0; i < opsquare.length; i++) {
-  opsquare[i].addEventListener('click', function () {
+  opsquare[i].addEventListener('click', function() {
 
-    num1 = document.getElementById("result").innerHTML;
-    display = "";
-    document.getElementById("result").innerHTML = this.innerHTML;
+    if (operator == "" || typeof(operator) == "undefined") {
+      num1 = document.getElementById("result").innerHTML;
+      display = "";
+      document.getElementById("result").innerHTML = this.innerHTML;
+    } else {
+      num2 = document.getElementById("result").innerHTML;
+      display = operate(operator, Number(num1), Number(num2)).toString();
+      display.length>9 ?
+        document.getElementById("result").innerHTML = display.substring(0,9):
+        document.getElementById("result").innerHTML = display;
+
+      num1 = display;
+      reset = true;
+    }
 
     operator = this.id;
 
   });
 }
 
-function calculate() {
-  num2 = document.getElementById("result").innerHTML;
-  display = operate(operator, Number(num1), Number(num2))
-  document.getElementById("result").innerHTML = display;
-}
 
-document.getElementById("equal").addEventListener('click', function () {
-  calculate();
+
+document.getElementById("equal").addEventListener('click', function() {
+  num2 = document.getElementById("result").innerHTML;
+  display = operate(operator, Number(num1), Number(num2)).toString();
+
+  display.length>9 ?
+    document.getElementById("result").innerHTML = display.substring(0,9):
+    document.getElementById("result").innerHTML = display;
+    
   num1 = "", operator = "";
   reset = true
 });
 
-document.getElementById("backspace").addEventListener('click', function () {
+document.getElementById("backspace").addEventListener('click', function() {
+  typeof display == "number" ? display = display.toString() : display;
+
   var array = display.split('')
   array.pop()
   display = array.join('');

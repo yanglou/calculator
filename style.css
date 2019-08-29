@@ -1,5 +1,6 @@
 .row {
   display: flex;
+  align-content: center;
 }
 
 .container {
@@ -10,12 +11,13 @@
 }
 
 .numsquare, .opsquare, .gridsquare, .dotsquare, #backspace {
-  height: 50%;
+  height: 80px;
   width: 50%;
   text-align: center;
   padding: 10px 0;
   border: outset;
-  font-size: 30px;
+  font-size: 40px;
+  flex-basis:100px;
 }
 
 .numsquare, .dotsquare {
@@ -29,18 +31,20 @@
 
 #result {
   text-align: center;
-  font-size: 40px;
+  font-size: 60px;
   padding: 20px 0;
   border: inset;
-  height: 40px;
+  height: 60px;
   background-color: ivory;
   width: 80%;
+  flex-basis:395px;
 }
 
 #backspace {
-  height: 85px;
+  height: 105px;
   width: 20%;
   background-color: darkslategrey;
+  flex-basis:100px;
 }
 
 #clear {
