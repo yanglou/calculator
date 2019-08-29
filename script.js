@@ -72,29 +72,29 @@ function displayValue() {
   document.getElementById("result").innerHTML = display;
 }
 
-document.getElementById("dot").addEventListener('click', function() {
+document.getElementById("dot").addEventListener('click', function () {
   if (!display.includes(".")) {
     display = display + this.innerHTML;
     document.getElementById("result").innerHTML = display;
   }
 });
 
-document.getElementById("clear").addEventListener('click', function() {
-  display,
-  num1,
-  num2,
-  operator = "";
+document.getElementById("clear").addEventListener('click', function () {
+  display = "", num1 = "", num2 = "", operator = "";
   reset = false;
   document.getElementById("result").innerHTML = "";
 });
 
 var opsquare = document.getElementsByClassName("opsquare");
 for (var i = 0; i < opsquare.length; i++) {
-  opsquare[i].addEventListener('click', function() {
+  opsquare[i].addEventListener('click', function () {
+
     num1 = document.getElementById("result").innerHTML;
-    operator = this.id;
     display = "";
     document.getElementById("result").innerHTML = this.innerHTML;
+
+    operator = this.id;
+
   });
 }
 
@@ -104,13 +104,13 @@ function calculate() {
   document.getElementById("result").innerHTML = display;
 }
 
-document.getElementById("equal").addEventListener('click', function() {
+document.getElementById("equal").addEventListener('click', function () {
   calculate();
-  num1, operator = "";
+  num1 = "", operator = "";
   reset = true
 });
 
-document.getElementById("backspace").addEventListener('click', function() {
+document.getElementById("backspace").addEventListener('click', function () {
   var array = display.split('')
   array.pop()
   display = array.join('');

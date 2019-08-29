@@ -1,10 +1,11 @@
 .row {
-  display: flex
+  display: flex;
 }
 
 .container {
+
   height: 400px;
-  width: 400px;
+  max-width: 400px;
   border-style: solid;
 }
 
