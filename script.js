@@ -36,7 +36,7 @@ function operate(operator, num1, num2) {
       break;
     case "divide":
       if (num2 == 0) {
-        return "Impossible"
+        return "I refuse"
       } else {
         return divide(num1, num2);
       }
