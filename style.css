@@ -1,0 +1,51 @@
+.row {
+  display: flex
+}
+
+.container {
+  height: 400px;
+  width: 400px;
+  border-style: solid;
+}
+
+.numsquare, .opsquare, .gridsquare, .dotsquare, #backspace {
+  height: 50%;
+  width: 50%;
+  text-align: center;
+  padding: 10px 0;
+  border: outset;
+  font-size: 30px;
+}
+
+.numsquare, .dotsquare {
+  background-color: gray;
+}
+
+.opsquare, #backspace {
+  background-color: silver;
+  font-weight: bold;
+}
+
+#result {
+  text-align: center;
+  font-size: 40px;
+  padding: 20px 0;
+  border: inset;
+  height: 40px;
+  background-color: ivory;
+  width: 80%;
+}
+
+#backspace {
+  height: 85px;
+  width: 20%;
+  background-color: darkslategrey;
+}
+
+#clear {
+  background-color: burlywood;
+}
+
+#equal {
+  background-color: olivedrab;
+}
