@@ -36,7 +36,7 @@ function operate(operator, num1, num2) {
       break;
     case "divide":
       if (num2 == 0) {
-        return "Universe Meltdown D:"
+        return "Impossible"
       } else {
         return divide(num1, num2);
       }
@@ -124,7 +124,7 @@ document.getElementById("equal").addEventListener('click', function() {
   display.length>9 ?
     document.getElementById("result").innerHTML = display.substring(0,9):
     document.getElementById("result").innerHTML = display;
-    
+
   num1 = "", operator = "";
   reset = true
 });
