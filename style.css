@@ -1,3 +1,13 @@
+@media all and (min-width:768px) {
+  .numsquare, .opsquare, .gridsquare, .dotsquare, #backspace {
+    flex-basis:100px;
+  }
+#result {
+  flex-basis:495px;
+}
+
+}
+
 .row {
   display: flex;
   align-content: center;
@@ -6,18 +16,18 @@
 .container {
 
   height: 400px;
-  max-width: 400px;
+  max-width: 800px;
   border-style: solid;
 }
 
 .numsquare, .opsquare, .gridsquare, .dotsquare, #backspace {
-  height: 80px;
-  width: 50%;
+  height: 20%;
+  width: 20%;
   text-align: center;
   padding: 10px 0;
   border: outset;
   font-size: 40px;
-  flex-basis:100px;
+
 }
 
 .numsquare, .dotsquare {
@@ -36,15 +46,14 @@
   border: inset;
   height: 60px;
   background-color: ivory;
-  width: 80%;
-  flex-basis:395px;
+  width: 100%;
+
 }
 
 #backspace {
-  height: 105px;
   width: 20%;
   background-color: darkslategrey;
-  flex-basis:100px;
+
 }
 
 #clear {

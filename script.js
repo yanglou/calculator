@@ -18,9 +18,6 @@ function power(num1, num2) {
   return Math.pow(num1, num2);
 }
 
-function root(num1, num2) {
-  return Math.pow(num1, 1 / num2);
-}
 
 function operate(operator, num1, num2) {
 
@@ -36,16 +33,13 @@ function operate(operator, num1, num2) {
       break;
     case "divide":
       if (num2 == 0) {
-        return "I refuse"
+        return "Please don't.";
       } else {
         return divide(num1, num2);
       }
       break;
     case "power":
       return power(num1, num2);
-      break;
-    case "square":
-      return root(num1, num2);
       break;
   }
 }
@@ -55,7 +49,7 @@ var num1;
 var operator;
 var num2;
 var reset = false;
-
+var maxDigits=13;
 
 
 var numsquare = document.getElementsByClassName("numsquare");
@@ -69,8 +63,8 @@ function displayValue() {
     reset = false;
   }
 
-  if (display.length>9) {
-    document.getElementById("result").innerHTML = display.substring(0,9);
+  if (display.length>=maxDigits) {
+    document.getElementById("result").innerHTML = display.substring(0,maxDigits);
   } else {
     display = display + this.innerHTML;
     document.getElementById("result").innerHTML = display;
@@ -102,8 +96,8 @@ for (var i = 0; i < opsquare.length; i++) {
     } else {
       num2 = document.getElementById("result").innerHTML;
       display = operate(operator, Number(num1), Number(num2)).toString();
-      display.length>9 ?
-        document.getElementById("result").innerHTML = display.substring(0,9):
+      display.length>=maxDigits ?
+        document.getElementById("result").innerHTML = display.substring(0,maxDigits):
         document.getElementById("result").innerHTML = display;
 
       num1 = display;
@@ -121,8 +115,8 @@ document.getElementById("equal").addEventListener('click', function() {
   num2 = document.getElementById("result").innerHTML;
   display = operate(operator, Number(num1), Number(num2)).toString();
 
-  display.length>9 ?
-    document.getElementById("result").innerHTML = display.substring(0,9):
+  display.length>=maxDigits ?
+    document.getElementById("result").innerHTML = display.substring(0,maxDigits):
     document.getElementById("result").innerHTML = display;
 
   num1 = "", operator = "";
